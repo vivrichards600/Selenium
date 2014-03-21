@@ -51,10 +51,10 @@ Public Class UnitTest1
 
         Dim driver As IWebDriver = New FirefoxDriver()
         Dim nav As INavigation = driver.Navigate()
-        nav.GoToUrl("http://www.google.com/")
+        nav.GoToUrl("http://localhost:49641/WebForm.aspx/")
         ' Dim element As IWebElement = driver.FindElement(By.Name("firstName"))
         ' Dim value As String = element.GetAttribute("value")
-        Assert.AreEqual("google", driver.Title.ToLower)
+        Assert.AreEqual("Create customer - Selenium sample", driver.Title)
         driver.Close()
 
 
