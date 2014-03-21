@@ -70,8 +70,7 @@ Public Class AddCustomerUnitTests
 
         Dim nav As INavigation = WebBrowser.Navigate()
         nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
-        ' Dim element As IWebElement = driver.FindElement(By.Name("firstName"))
-        ' Dim value As String = element.GetAttribute("value")
+      
         AddCustomer.SetCustomerName(WebBrowser, "Viv Richards")
         AddCustomer.SetCustomerNumber(WebBrowser, "12345678")
 

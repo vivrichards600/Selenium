@@ -18,4 +18,5 @@ Public Class AddCustomer
         Dim addCustomerButton As IWebElement = driver.FindElement(By.Id("AddCustomerButton"))
         addCustomerButton.Click()
     End Sub
+
 End Class
