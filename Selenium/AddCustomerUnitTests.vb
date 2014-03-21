@@ -47,6 +47,10 @@ Public Class AddCustomerUnitTests
     ' the max. time to wait before timing out.
     Public Const TimeOut As Integer = 30
 
+    ''' <summary>
+    ''' Ensure that the page is presented
+    ''' </summary>
+    ''' <remarks></remarks>
     <TestMethod()> _
     Public Sub AssertPageIsPresented()
 
@@ -57,6 +61,10 @@ Public Class AddCustomerUnitTests
 
     End Sub
 
+    ''' <summary>
+    ''' Ensure when required fields are completed that we get to the success page
+    ''' </summary>
+    ''' <remarks></remarks>
     <TestMethod()> _
     Public Sub AssertPageOnValidCompletionGoesToNextPage()
 
@@ -79,6 +87,4 @@ Public Class AddCustomerUnitTests
 
     End Sub
 
-    'Dim button22 = driver.FindElement(By.Id("")) ' nav.find_element_by_xpath(NEXT_BUTTON_XPATH)
-    ' button22.Click()
 End Class
