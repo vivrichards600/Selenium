@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="UnitTest1.vb" />
+    <Compile Include="AddCustomerUnitTests.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

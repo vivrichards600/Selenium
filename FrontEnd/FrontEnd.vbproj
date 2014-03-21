@@ -86,6 +86,13 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Confirmation.aspx.designer.vb">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Confirmation.aspx.vb">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,11 +112,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WebForm.aspx.designer.vb">
-      <DependentUpon>WebForm.aspx</DependentUpon>
+    <Compile Include="AddCustomer.aspx.designer.vb">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm.aspx.vb">
-      <DependentUpon>WebForm.aspx</DependentUpon>
+    <Compile Include="AddCustomer.aspx.vb">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -131,6 +138,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="Confirmation.aspx" />
     <Content Include="web.config" />
     <Content Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -143,7 +151,7 @@
     <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebForm.aspx" />
+    <Content Include="AddCustomer.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

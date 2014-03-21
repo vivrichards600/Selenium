@@ -3,7 +3,7 @@ Imports OpenQA.Selenium
 Imports OpenQA.Selenium.Firefox
 
 <TestClass()>
-Public Class UnitTest1
+Public Class AddCustomerUnitTests
 
     Private testContextInstance As TestContext
 
@@ -21,6 +21,7 @@ Public Class UnitTest1
     End Property
 
 #Region "Additional test attributes"
+    Public Shared driver As IWebDriver = New FirefoxDriver()
     '
     ' You can use the following additional attributes as you write your tests:
     '
@@ -33,30 +34,51 @@ Public Class UnitTest1
     ' End Sub
     '
     ' Use TestInitialize to run code before running each test
-    ' <TestInitialize()> Public Sub MyTestInitialize()
-    ' End Sub
+    '<TestInitialize()> Public Sub MyTestInitialize()
+    'End Sub
     '
     ' Use TestCleanup to run code after each test has run
-    ' <TestCleanup()> Public Sub MyTestCleanup()
-    ' End Sub
+    <TestCleanup()> Public Sub MyTestCleanup()
+        ' driver.Close()
+    End Sub
     '
 #End Region
-
 
     ' the max. time to wait before timing out.
     Public Const TimeOut As Integer = 30
 
     <TestMethod()> _
-    Public Sub AssertPageTitle()
+    Public Sub AssertPageIsPresented()
 
-        Dim driver As IWebDriver = New FirefoxDriver()
         Dim nav As INavigation = driver.Navigate()
-        nav.GoToUrl("http://localhost:49641/WebForm.aspx/")
-        ' Dim element As IWebElement = driver.FindElement(By.Name("firstName"))
-        ' Dim value As String = element.GetAttribute("value")
-        Assert.AreEqual("Create customer - Selenium sample", driver.Title)
-        driver.Close()
+        nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
 
+        Assert.AreEqual("Create customer - Selenium sample", driver.Title)
 
     End Sub
+
+    <TestMethod()> _
+    Public Sub AssertPageOnValidCompletionGoesToNextPage()
+
+        Dim nav As INavigation = driver.Navigate()
+        nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
+        ' Dim element As IWebElement = driver.FindElement(By.Name("firstName"))
+        ' Dim value As String = element.GetAttribute("value")
+
+        Dim customerName As IWebElement = driver.FindElement(By.Id("CustomerName"))
+        customerName.SendKeys("Viv Richards")
+
+        Dim customerNumber As IWebElement = driver.FindElement(By.Id("CustomerNumber"))
+        customerNumber.SendKeys("12345678")
+
+
+        Dim addCustomerButton As IWebElement = driver.FindElement(By.Id("AddCustomerButton"))
+        addCustomerButton.Click()
+
+        Assert.AreEqual("Success - Selenium sample", driver.Title)
+
+    End Sub
+
+    'Dim button22 = driver.FindElement(By.Id("")) ' nav.find_element_by_xpath(NEXT_BUTTON_XPATH)
+    ' button22.Click()
 End Class
