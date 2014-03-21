@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="AddCustomerUnitTests.vb" />
+    <Compile Include="PageObjects\AddCustomer.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

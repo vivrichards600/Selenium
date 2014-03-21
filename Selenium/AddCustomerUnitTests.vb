@@ -21,7 +21,7 @@ Public Class AddCustomerUnitTests
     End Property
 
 #Region "Additional test attributes"
-    Public Shared driver As IWebDriver = New FirefoxDriver()
+    Public Shared WebBrowser As IWebDriver = New FirefoxDriver()
     '
     ' You can use the following additional attributes as you write your tests:
     '
@@ -54,10 +54,10 @@ Public Class AddCustomerUnitTests
     <TestMethod()> _
     Public Sub AssertPageIsPresented()
 
-        Dim nav As INavigation = driver.Navigate()
+        Dim nav As INavigation = webBrowser.Navigate()
         nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
 
-        Assert.AreEqual("Create customer - Selenium sample", driver.Title)
+        Assert.AreEqual(webBrowser.Title, "Create customer - Selenium sample")
 
     End Sub
 
@@ -68,22 +68,16 @@ Public Class AddCustomerUnitTests
     <TestMethod()> _
     Public Sub AssertPageOnValidCompletionGoesToNextPage()
 
-        Dim nav As INavigation = driver.Navigate()
+        Dim nav As INavigation = WebBrowser.Navigate()
         nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
         ' Dim element As IWebElement = driver.FindElement(By.Name("firstName"))
         ' Dim value As String = element.GetAttribute("value")
+        AddCustomer.SetCustomerName(WebBrowser, "Viv Richards")
+        AddCustomer.SetCustomerNumber(WebBrowser, "12345678")
 
-        Dim customerName As IWebElement = driver.FindElement(By.Id("CustomerName"))
-        customerName.SendKeys("Viv Richards")
+        AddCustomer.AddCustomerSubmit(WebBrowser)
 
-        Dim customerNumber As IWebElement = driver.FindElement(By.Id("CustomerNumber"))
-        customerNumber.SendKeys("12345678")
-
-
-        Dim addCustomerButton As IWebElement = driver.FindElement(By.Id("AddCustomerButton"))
-        addCustomerButton.Click()
-
-        Assert.AreEqual("Success - Selenium sample", driver.Title)
+        Assert.AreEqual(WebBrowser.Title, "Success - Selenium sample")
 
     End Sub
 
