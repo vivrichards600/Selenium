@@ -23,13 +23,13 @@ Partial Public Class AddCustomer
     Protected WithEvents CustomerName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''customerNameRequiredFieldValidator control.
+    '''CustomerNameRequiredFieldValidator control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents customerNameRequiredFieldValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents CustomerNameRequiredFieldValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''CustomerNumber control.
@@ -41,13 +41,13 @@ Partial Public Class AddCustomer
     Protected WithEvents CustomerNumber As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''RequiredFieldValidator1 control.
+    '''CustomerNumberRequiredFieldValidator control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents CustomerNumberRequiredFieldValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''AddCustomerButton control.

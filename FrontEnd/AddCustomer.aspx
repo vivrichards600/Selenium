@@ -18,7 +18,7 @@
             Customer name
         </label>
         <asp:TextBox ID="CustomerName" runat="server" MaxLength="30"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="customerNameRequiredFieldValidator" runat="server"
+        <asp:RequiredFieldValidator ID="CustomerNameRequiredFieldValidator" runat="server"
             ErrorMessage="Please enter a customer name" ControlToValidate="customerName"></asp:RequiredFieldValidator>
     </div>
     <div class="form-item">
@@ -26,7 +26,7 @@
             Customer Number
         </label>
         <asp:TextBox ID="CustomerNumber" runat="server" MaxLength="8"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a customer number"
+        <asp:RequiredFieldValidator ID="CustomerNumberRequiredFieldValidator" runat="server" ErrorMessage="Please enter a customer number"
             ControlToValidate="customerNumber"></asp:RequiredFieldValidator>
     </div>
     <asp:Button ID="AddCustomerButton" runat="server" Text="Add Customer" 

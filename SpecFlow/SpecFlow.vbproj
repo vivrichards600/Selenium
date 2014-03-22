@@ -87,7 +87,6 @@
       <DependentUpon>AddCustomer.feature</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="UnitTest1.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AddCustomer.feature">

@@ -32,6 +32,7 @@ Public Class AddCustomerUnitTests
         'WebBrowser = New PhantomJSDriver
         'WebBrowser = New ChromeDriver
         'WebBrowser = New InternetExplorerDriver
+
         'Only necessary for the correct date format, e.g. PublishedDate
         Thread.CurrentThread.CurrentCulture = New CultureInfo("en")
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("en")
@@ -61,7 +62,7 @@ Public Class AddCustomerUnitTests
     ''' </summary>
     ''' <remarks></remarks>
     <TestMethod()> _
-    Public Sub AssertPageOnValidCompletionGoesToNextPage()
+    Public Sub AssertValidCompletionOfFormGoesToNextPage()
 
         Dim nav As INavigation = WebBrowser.Navigate()
         nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
@@ -71,6 +72,23 @@ Public Class AddCustomerUnitTests
         AddCustomer.AddCustomerSubmit(WebBrowser)
 
         Assert.AreEqual(WebBrowser.Title, "Success - Selenium sample")
+
+    End Sub
+
+    ''' <summary>
+    ''' Ensure when required fields are not completed that we get validation errors
+    ''' </summary>
+    ''' <remarks></remarks>
+    <TestMethod()> _
+    Public Sub AssertInvalidCompletionOfFormDisplaysErrors()
+
+        Dim nav As INavigation = WebBrowser.Navigate()
+        nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
+
+        AddCustomer.AddCustomerSubmit(WebBrowser)
+
+        Assert.IsTrue(AddCustomer.CustomerNameValidationError(WebBrowser))
+        Assert.IsTrue(AddCustomer.CustomerNumberValidationError(WebBrowser))
 
     End Sub
 

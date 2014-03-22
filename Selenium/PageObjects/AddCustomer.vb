@@ -19,4 +19,12 @@ Public Class AddCustomer
         addCustomerButton.Click()
     End Sub
 
+    Public Shared Function CustomerNameValidationError(ByVal driver As IWebDriver) As Boolean
+        Return driver.FindElement(By.Id("CustomerNameRequiredFieldValidator")).Displayed
+    End Function
+
+    Public Shared Function CustomerNumberValidationError(ByVal driver As IWebDriver) As Boolean
+        Return driver.FindElement(By.Id("CustomerNameRequiredFieldValidator")).Displayed
+    End Function
+
 End Class
