@@ -10,27 +10,44 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<form runat="server">
-    <h1>
-        Add new customer</h1>
-    <div class="form-item">
-        <label for="CustomerName">
-            Customer name
-        </label>
-        <asp:TextBox ID="CustomerName" runat="server" MaxLength="30"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="CustomerNameRequiredFieldValidator" runat="server"
-            ErrorMessage="Please enter a customer name" ControlToValidate="customerName"></asp:RequiredFieldValidator>
+    <div class="container">
+        <h1>
+            Customer database</h1>
+        <form runat="server" role="form">
+        <h2>
+            Add a new customer</h2>
+<div class="form-group">
+        <asp:ValidationSummary ID="ValidationSummary" runat="server" 
+            CssClass="text-danger" ValidationGroup="AddCustomer" DisplayMode="BulletList" />
+       </div>
+       
+        <div class="form-group">
+           <label for="CustomerName" class="control-label">
+                Customer name</label>
+           <asp:TextBox ID="CustomerName" runat="server" MaxLength="30" 
+                CssClass="form-control" ValidationGroup="AddCustomer" aria-required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="CustomerNameRequiredFieldValidator" runat="server"
+                    ErrorMessage="Please enter a customer name" 
+                ControlToValidate="customerName" CssClass="text-danger" 
+                ValidationGroup="AddCustomer"></asp:RequiredFieldValidator>
+        </div>
+        <div class="form-group">
+           <label for="CustomerNumber" class="control-label">
+                Customer number</label>
+           <asp:TextBox ID="CustomerNumber" runat="server" MaxLength="8" 
+                CssClass="form-control" ValidationGroup="AddCustomer" aria-required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="CustomerNumberRequiredFieldValidator" runat="server"
+                    ErrorMessage="Please enter a customer number" 
+                ControlToValidate="customerNumber" CssClass="text-danger" 
+                ValidationGroup="AddCustomer"></asp:RequiredFieldValidator>
+        </div>
+        <asp:Button ID="AddCustomerButton" runat="server" CssClass="btn btn-primary" Text="Add Customer"
+                    PostBackUrl="~/Confirmation.aspx" ValidationGroup="AddCustomer" />
+       
+        </form>
+
+
+
     </div>
-    <div class="form-item">
-        <label for="CustomerNumber">
-            Customer Number
-        </label>
-        <asp:TextBox ID="CustomerNumber" runat="server" MaxLength="8"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="CustomerNumberRequiredFieldValidator" runat="server" ErrorMessage="Please enter a customer number"
-            ControlToValidate="customerNumber"></asp:RequiredFieldValidator>
-    </div>
-    <asp:Button ID="AddCustomerButton" runat="server" Text="Add Customer" 
-        PostBackUrl="~/Confirmation.aspx" />
-    </form>
 </body>
 </html>

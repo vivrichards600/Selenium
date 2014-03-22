@@ -86,13 +86,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\Accessibility.vb" />
+    <Compile Include="common\ErrorPanel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="AddCustomerUnitTests.vb" />
-    <Compile Include="PageObjects\AddCustomer.vb" />
+    <Compile Include="AddCustomerIntegrationSpec.vb" />
+    <Compile Include="pages\AddCustomer.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

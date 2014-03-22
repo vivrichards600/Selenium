@@ -139,6 +139,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Confirmation.aspx" />
+    <Content Include="css\bootstrap.css" />
     <Content Include="web.config" />
     <Content Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -147,9 +148,7 @@
       <DependentUpon>web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="AddCustomer.aspx" />
   </ItemGroup>

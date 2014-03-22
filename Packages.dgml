@@ -1,7 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
-  <Nodes />
-  <Links />
+  <Nodes>
+    <Node Id="SpecFlow" Label="SpecFlow" Category="Project" />
+    <Node Id="NUnit 2.6.3" Label="NUnit 2.6.3" Category="Package" />
+    <Node Id="SpecFlow 1.9.0" Label="SpecFlow 1.9.0" Category="Package" />
+    <Node Id="Selenium" Label="Selenium" Category="Project" />
+    <Node Id="Selenium.WebDriver 2.40.0" Label="Selenium.WebDriver 2.40.0" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="SpecFlow" Target="NUnit 2.6.3" Category="Installed Package" />
+    <Link Source="SpecFlow" Target="SpecFlow 1.9.0" Category="Installed Package" />
+    <Link Source="Selenium" Target="Selenium.WebDriver 2.40.0" Category="Installed Package" />
+  </Links>
   <Categories>
     <Category Id="Project" />
     <Category Id="Package" />
