@@ -1,6 +1,11 @@
 ﻿Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports OpenQA.Selenium
 Imports OpenQA.Selenium.Firefox
+Imports System.Threading
+Imports System.Globalization
+Imports OpenQA.Selenium.IE
+Imports OpenQA.Selenium.Chrome
+Imports OpenQA.Selenium.PhantomJS
 
 <TestClass()>
 Public Class AddCustomerUnitTests
@@ -16,37 +21,28 @@ Public Class AddCustomerUnitTests
             Return testContextInstance
         End Get
         Set(ByVal value As TestContext)
-            testContextInstance = Value
+            testContextInstance = value
         End Set
     End Property
 
-#Region "Additional test attributes"
-    Public Shared WebBrowser As IWebDriver = New FirefoxDriver()
-    '
-    ' You can use the following additional attributes as you write your tests:
-    '
-    ' Use ClassInitialize to run code before running the first test in the class
-    ' <ClassInitialize()> Public Shared Sub MyClassInitialize(ByVal testContext As TestContext)
-    ' End Sub
-    '
-    ' Use ClassCleanup to run code after all tests in a class have run
-    ' <ClassCleanup()> Public Shared Sub MyClassCleanup()
-    ' End Sub
-    '
-    ' Use TestInitialize to run code before running each test
-    '<TestInitialize()> Public Sub MyTestInitialize()
-    'End Sub
-    '
-    ' Use TestCleanup to run code after each test has run
-    <TestCleanup()> Public Sub MyTestCleanup()
-        ' driver.Close()
+    Public WebBrowser As IWebDriver
+    <TestInitialize()>
+    Public Sub Initialization()
+        WebBrowser = New FirefoxDriver
+        'WebBrowser = New PhantomJSDriver
+        'WebBrowser = New ChromeDriver
+        'WebBrowser = New InternetExplorerDriver
+        'Only necessary for the correct date format, e.g. PublishedDate
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("en")
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo("en")
     End Sub
-    '
-#End Region
+    <TestCleanup()>
+    Public Sub Termination()
+        WebBrowser.Quit()
+    End Sub
 
     ' the max. time to wait before timing out.
     Public Const TimeOut As Integer = 30
-
     ''' <summary>
     ''' Ensure that the page is presented
     ''' </summary>
@@ -54,10 +50,9 @@ Public Class AddCustomerUnitTests
     <TestMethod()> _
     Public Sub AssertPageIsPresented()
 
-        Dim nav As INavigation = webBrowser.Navigate()
-        nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
+        WebBrowser.Navigate.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
 
-        Assert.AreEqual(webBrowser.Title, "Create customer - Selenium sample")
+        Assert.AreEqual(WebBrowser.Title, "Create customer - Selenium sample")
 
     End Sub
 
@@ -70,10 +65,9 @@ Public Class AddCustomerUnitTests
 
         Dim nav As INavigation = WebBrowser.Navigate()
         nav.GoToUrl("http://localhost:49641/AddCustomer.aspx/")
-      
+
         AddCustomer.SetCustomerName(WebBrowser, "Viv Richards")
         AddCustomer.SetCustomerNumber(WebBrowser, "12345678")
-
         AddCustomer.AddCustomerSubmit(WebBrowser)
 
         Assert.AreEqual(WebBrowser.Title, "Success - Selenium sample")
