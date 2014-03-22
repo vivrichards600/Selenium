@@ -25,6 +25,8 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Selenium.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,12 +55,20 @@
       <HintPath>..\..\..\..\Selenium\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="ThoughtWorks.Selenium.Core, Version=2.33.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -89,13 +99,18 @@
     <Compile Include="common\Accessibility.vb" />
     <Compile Include="common\ErrorPanel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="AddCustomerIntegrationSpec.vb" />
+    <Compile Include="tests\AddCustomerIntegrationSpec.vb" />
     <Compile Include="pages\AddCustomer.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FrontEnd\FrontEnd.vbproj">
+      <Project>{9F0642E2-ED42-4B14-9632-A4D322395DE6}</Project>
+      <Name>FrontEnd</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

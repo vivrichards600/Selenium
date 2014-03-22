@@ -25,6 +25,7 @@ Public Class AddCustomerIntegrationSpec
     <TestInitialize()>
     Public Sub Initialization()
         WebBrowser = New FirefoxDriver
+
     End Sub
 
     <TestCleanup()>
