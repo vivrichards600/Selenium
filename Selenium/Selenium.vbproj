@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\Accessibility.vb" />
+    <Compile Include="common\Driver.vb" />
     <Compile Include="common\ErrorPanel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="tests\AddCustomerIntegrationSpec.vb" />

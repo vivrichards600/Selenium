@@ -3,7 +3,7 @@ Imports OpenQA.Selenium
 Imports OpenQA.Selenium.Firefox
 Imports Selenium.AddCustomer
 Imports OpenQA.Selenium.IE
-
+Imports Selenium.Driver.Type
 <TestClass()>
 Public Class AddCustomerIntegrationSpec
 
@@ -25,41 +25,12 @@ Public Class AddCustomerIntegrationSpec
 
     <TestInitialize()>
     Public Sub Initialization()
-        UseBrowser(Browser.PhantomJS)
+        WebBrowser = Selenium.Driver.Use(Chrome)
     End Sub
 
     <TestCleanup()>
     Public Sub Termination()
         WebBrowser.Quit()
-    End Sub
-
-    ''' <summary>
-    ''' browser types
-    ''' </summary>
-    ''' <remarks></remarks>
-    Enum Browser
-        Firefox
-        Chrome
-        InternetExplorer
-        PhantomJS
-    End Enum
-
-    ''' <summary>
-    ''' Select which web browser to use to execute integration tests
-    ''' </summary>
-    ''' <param name="Browser"></param>
-    ''' <remarks></remarks>
-    Private Sub UseBrowser(ByVal Browser As Browser)
-        Select Case Browser
-            Case AddCustomerIntegrationSpec.Browser.Firefox
-                WebBrowser = New FirefoxDriver
-            Case AddCustomerIntegrationSpec.Browser.Chrome
-                WebBrowser = New Chrome.ChromeDriver("C:\Users\richarv\Documents\visual studio 2010\Projects\Selenium\Selenium\drivers")
-            Case AddCustomerIntegrationSpec.Browser.InternetExplorer
-                WebBrowser = New InternetExplorerDriver("C:\Users\richarv\Documents\visual studio 2010\Projects\Selenium\Selenium\drivers")
-            Case AddCustomerIntegrationSpec.Browser.PhantomJS
-                WebBrowser = New PhantomJS.PhantomJSDriver("C:\Users\richarv\Documents\visual studio 2010\Projects\Selenium\Selenium\drivers")
-        End Select
     End Sub
 
     ''' <summary>
